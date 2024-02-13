@@ -1,4 +1,4 @@
-# My Sanji APp
+# My Sanji App
 
 
 ## Getting Started
