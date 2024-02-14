@@ -31,6 +31,8 @@
 # Ignore generated coverage files
 **/coverage/lcov.info
 result.txt
+**/coverage/
+**/lcov.info/*
 
 
 # Ignore generated plugin files
@@ -42,4 +44,4 @@ result.txt
 **/.flutter-plugins-dependencies/*
 **/.metadata/*
 
-*/.info
+
