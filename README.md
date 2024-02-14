@@ -8,10 +8,10 @@ Follow these steps to get started with the project:
 1. Clone the Repository
 
 2. Install melos globally
-``` bash npm install -g melos ```
+``` dart pub global activate melos ```
 
 3. Bootstrap melos
-``` bash melos bootstrap```
+```melos bootstrap```
 if you get success message then you are good to go
 
 ## Project Structure
