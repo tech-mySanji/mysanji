@@ -1,4 +1,3 @@
-import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TestWidget();
+    return Container();
   }
 }
 

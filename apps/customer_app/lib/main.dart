@@ -1,4 +1,5 @@
-import 'package:common/common.dart';
+import 'package:common/my_sanji_theme.dart';
+import 'package:customer_app/screens/phone_number_login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: MySanjiThemeLight.getTheme(),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -30,7 +28,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TestWidget();
+    return PhoneNumberLoginWidget();
   }
 }
 

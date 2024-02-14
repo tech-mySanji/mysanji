@@ -27,3 +27,19 @@
 **/doc/api/
 **/.dart_tool/
 **/build/
+
+# Ignore generated coverage files
+**/coverage/lcov.info
+result.txt
+
+
+# Ignore generated plugin files
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Ignore nested plugin files and dependencies
+**/.flutter-plugins/*
+**/.flutter-plugins-dependencies/*
+**/.metadata/*
+
+*/.info
