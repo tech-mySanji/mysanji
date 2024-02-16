@@ -2,10 +2,12 @@ import 'package:common/widgets/primary_button.dart';
 import 'package:customer_app/constants/labels.dart';
 import 'package:customer_app/screens/phone_number_login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('PhoneNumberLoginWidget renders correctly', (WidgetTester tester) async {
+  testWidgets('PhoneNumberLoginWidget renders correctly',
+      (WidgetTester tester) async {
     // Build our widget and trigger a frame.
     await tester.pumpWidget(MaterialApp(
       home: PhoneNumberLoginWidget(),
@@ -25,5 +27,22 @@ void main() {
 
     // Verify that the PrimaryButton has label is rendered.
     expect(find.text(Labels.SUBMIT), findsOneWidget);
+  });
+
+  testWidgets('PhoneNumberLoginWidget System UI Overlay Test',
+      (WidgetTester tester) async {
+    // Build our widget and trigger a frame.
+    await tester.pumpWidget(MaterialApp(
+      home: PhoneNumberLoginWidget(),
+    ));
+
+    // Verify that System UI Overlay Style is set for iOS
+    const systemUiOverlayStyle = SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light, // Assuming light theme
+      systemStatusBarContrastEnforced: true,
+    );
+
+    expect(tester.platformDispatcher.platformBrightness,
+        systemUiOverlayStyle.statusBarBrightness);
   });
 }

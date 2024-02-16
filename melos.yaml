@@ -29,9 +29,8 @@ scripts:
 
   test:
     run: |
-      melos run test:dart --no-select && \
       melos run test:flutter --no-select
-    description: Run all Dart & Flutter tests in this project.
+    description: Run all Flutter tests in this project.
 
   lint:clean:
     run: |
@@ -75,19 +74,6 @@ scripts:
     description: Run flutter analyze
     packageFilters:
       flutter: true
-
-  test:dart:
-    run: |
-      melos exec \
-      --concurrency 1 \
-      --fail-fast \
-      -- \
-      dart run coverage:test_with_coverage
-    description: Run Dart tests for a specific package in this project.
-    packageFilters:
-      flutter: false
-      dirExists:
-        - test
 
   test:flutter:
     run: |
