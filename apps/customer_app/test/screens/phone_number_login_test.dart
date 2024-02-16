@@ -10,7 +10,7 @@ void main() {
       (WidgetTester tester) async {
     // Build our widget and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-      home: PhoneNumberLoginWidget(),
+      home: PhoneNumberLoginScreen(),
     ));
 
     // Verify that the text 'Phone Number' is rendered.
@@ -33,7 +33,7 @@ void main() {
       (WidgetTester tester) async {
     // Build our widget and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-      home: PhoneNumberLoginWidget(),
+      home: PhoneNumberLoginScreen(),
     ));
 
     // Verify that System UI Overlay Style is set for iOS
