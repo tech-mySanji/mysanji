@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('Renders OTPVerification widget correctly', (WidgetTester tester) async {
     // Render the widget
-    await tester.pumpWidget(MaterialApp(home: OtpVerification()));
+    await tester.pumpWidget(MaterialApp(home: OtpVerificationScreen()));
 
     // Find and verify elements
     expect(find.text('OTP'), findsOneWidget);
