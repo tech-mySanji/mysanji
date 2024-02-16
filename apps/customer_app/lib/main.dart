@@ -1,4 +1,5 @@
 import 'package:common/my_sanji_theme.dart';
+import 'package:customer_app/screens/otp_verfication.dart';
 import 'package:customer_app/screens/phone_number_login.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PhoneNumberLoginWidget();
+    return PhoneNumberLoginScreen();
   }
 }
 

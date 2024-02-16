@@ -31,13 +31,28 @@ class BaseTheme {
   );
 
   static final baseTextStyle =
-      GoogleFonts.poppins(fontWeight: FontWeight.w800, color: primaryText);
+      GoogleFonts.poppins(fontWeight: FontWeight.w300, color: primaryText);
 
-  static final textBodyLarge = baseTextStyle.copyWith(fontSize: 14);
+  static final displayLarge = baseTextStyle.copyWith(fontSize: 57);
+  static final displayMedium = baseTextStyle.copyWith(fontSize: 45);
+  static final displaySmall = baseTextStyle.copyWith(fontSize: 24,fontWeight: FontWeight.w400);
 
-  static final textBodyMedium = baseTextStyle.copyWith(fontSize: 12);
+  static final headlineLarge = baseTextStyle.copyWith(fontSize: 32);
+  static final headlineMedium = baseTextStyle.copyWith(fontSize: 22,fontWeight: FontWeight.w400, color: secondaryText);
+  static final headlineSmall = baseTextStyle.copyWith(fontSize: 20,fontWeight: FontWeight.w400);
 
-  static final textBodySmall = baseTextStyle.copyWith(fontSize: 10);
+  static final titleLarge = baseTextStyle.copyWith(fontSize: 22,fontWeight: FontWeight.w500);
+  static final titleMedium = baseTextStyle.copyWith(fontSize: 18,fontWeight: FontWeight.w400);
+  static final titleSmall = baseTextStyle.copyWith(fontSize: 16,fontWeight: FontWeight.w400,color: secondaryText);
+
+
+  static final labelLarge = baseTextStyle.copyWith(fontSize: 14,fontWeight: FontWeight.w500);
+  static final labelMedium = baseTextStyle.copyWith(fontSize: 12,fontWeight: FontWeight.w500);
+  static final labelSmall = baseTextStyle.copyWith(fontSize: 11,fontWeight: FontWeight.w500);
+
+  static final bodyLarge = baseTextStyle.copyWith(fontSize: 16);
+  static final bodyMedium = baseTextStyle.copyWith(fontSize: 14,fontWeight: FontWeight.w400);
+  static final bodySmall = baseTextStyle.copyWith(fontSize: 12,fontWeight: FontWeight.w400,color: secondaryText);
 }
 
 class MySanjiThemeLight {
@@ -49,9 +64,21 @@ class MySanjiThemeLight {
       hintColor: BaseTheme.secondary,
       scaffoldBackgroundColor: BaseTheme.scaffoldBackgroundColor,
       textTheme: TextTheme(
-        bodyLarge: BaseTheme.textBodyLarge,
-        bodyMedium: BaseTheme.textBodyMedium,
-        bodySmall: BaseTheme.textBodySmall,
+        displayLarge: BaseTheme.displayLarge,
+        displayMedium: BaseTheme.displayMedium,
+        displaySmall: BaseTheme.displaySmall,
+        headlineLarge: BaseTheme.headlineLarge,
+        headlineMedium: BaseTheme.headlineMedium,
+        headlineSmall: BaseTheme.headlineSmall,
+        titleLarge: BaseTheme.titleLarge,
+        titleMedium: BaseTheme.titleMedium,
+        titleSmall: BaseTheme.titleSmall,
+        labelLarge: BaseTheme.labelLarge,
+        labelMedium: BaseTheme.labelMedium,
+        labelSmall: BaseTheme.labelSmall,
+        bodyLarge: BaseTheme.bodyLarge,
+        bodyMedium: BaseTheme.bodyMedium,
+        bodySmall: BaseTheme.bodySmall,
       ),
       canvasColor: BaseTheme.canvasColor,
       dividerColor: BaseTheme.lineColor,

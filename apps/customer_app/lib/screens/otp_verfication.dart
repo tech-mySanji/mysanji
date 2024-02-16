@@ -1,11 +1,11 @@
 import 'package:common/widgets.dart';
 import 'package:flutter/material.dart';
 
-class OtpVerification extends StatelessWidget {
+class OtpVerificationScreen extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
 
-  OtpVerification({super.key});
+  OtpVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,9 @@ class OtpVerification extends StatelessWidget {
                         children: [
                           Text(
                             'OTP',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Theme.of(context).hintColor,
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(

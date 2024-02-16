@@ -14,7 +14,7 @@ void main() {
         (WidgetTester tester) async {
       // Test navigation to the correct screen
       await tester.pumpWidget(const MyApp());
-      expect(find.byType(PhoneNumberLoginWidget), findsOneWidget);
+      expect(find.byType(PhoneNumberLoginScreen), findsOneWidget);
     });
 
   });

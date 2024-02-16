@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:common/widgets/primary_button.dart';
 
-class PhoneNumberLoginWidget extends StatelessWidget {
+class PhoneNumberLoginScreen extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
 
-  PhoneNumberLoginWidget({super.key});
+  PhoneNumberLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
