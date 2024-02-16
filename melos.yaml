@@ -29,9 +29,8 @@ scripts:
 
   test:
     run: |
-      melos run test:dart --no-select && \
       melos run test:flutter --no-select
-    description: Run all Dart & Flutter tests in this project.
+    description: Run all Flutter tests in this project.
 
   lint:clean:
     run: |
