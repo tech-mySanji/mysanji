@@ -41,7 +41,9 @@ class OtpVerification extends StatelessWidget {
                         children: [
                           Text(
                             'OTP',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Theme.of(context).hintColor,
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
