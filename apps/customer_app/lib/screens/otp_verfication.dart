@@ -1,5 +1,14 @@
 import 'package:common/widgets.dart';
+import 'package:customer_app/blocs/auth_bloc/auth_state.dart';
+import 'package:customer_app/constants/labels.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/style.dart';
+
+import '../blocs/auth_bloc/auth_bloc.dart';
+import '../blocs/auth_bloc/auth_events.dart';
+import 'login_sucess.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -9,118 +18,103 @@ class OtpVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => {},
-      child: Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: Theme.of(context).canvasColor,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: Image.asset(
-                      'assets/images/phone_login_mask.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Form(
-                    key: _formKey,
-                    autovalidateMode: AutovalidateMode.always,
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          16.0, 0.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'OTP',
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Text(
-                              'Enter 6 digit OTP',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 20.0, 16.0, 0.0),
-                            child: Container(
-                              height: 55.0,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).canvasColor,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 12.0,
-                                    color: Color(0x5AFBCC2D),
-                                    offset: Offset(0.0, 3.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(6.0),
-                              ),
-                              child: TextFormField(
-                                autofocus: true,
-                                textInputAction: TextInputAction.next,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: '6 Digit Code',
-                                  labelStyle: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium,
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium,
-                                  enabledBorder: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  focusedErrorBorder: InputBorder.none,
-                                  filled: true,
-                                  contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 0.0, 0.0),
-                                ),
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium,
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 20.0, 0.0, 0.0),
-                            child: PrimaryButton(
-                              text: 'Verify',
-                              onPressed: () => {},
-                            ),
-                          ),
-                        ],
+    AuthBloc _authBloc = BlocProvider.of<AuthBloc>(context);
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is LoginSuccessState) {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LoginSuccessWidget()));
+        }
+      },
+      child: GestureDetector(
+        onTap: () => {},
+        child: Scaffold(
+          key: _scaffoldKey,
+          backgroundColor: Theme.of(context).canvasColor,
+          body: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(0.0),
+                      child: Image.asset(
+                        'assets/images/phone_login_mask.png',
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                ],
+                    Form(
+                      key: _formKey,
+                      autovalidateMode: AutovalidateMode.always,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              Labels.OTP,
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Text(
+                                Labels.ENTER_OTP,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 16.0, 0.0),
+                              child: OTPTextField(
+                                  length: 6,
+                                  isDense: true,
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.2,
+                                  fieldWidth: 30.0,
+                                  fieldStyle: FieldStyle.underline,
+                                  outlineBorderRadius: 10,
+                                  spaceBetween: 10,
+                                  style: const TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w800),
+                                  onCompleted: (pin) {
+                                    _authBloc.add(OTPEnteredEvent(pin));
+                                  }),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: PrimaryButton(
+                                text: Labels.VERIFY,
+                                onPressed: () => {},
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
