@@ -31,7 +31,7 @@ class BaseTheme {
   );
 
   static final baseTextStyle =
-      GoogleFonts.poppins(fontWeight: FontWeight.w300, color: primaryText);
+      GoogleFonts.poppins(fontWeight: FontWeight.w500, color: primaryText);
 
   static final displayLarge = baseTextStyle.copyWith(fontSize: 57);
   static final displayMedium = baseTextStyle.copyWith(fontSize: 45);
@@ -42,7 +42,7 @@ class BaseTheme {
   static final headlineSmall = baseTextStyle.copyWith(fontSize: 20,fontWeight: FontWeight.w400);
 
   static final titleLarge = baseTextStyle.copyWith(fontSize: 22,fontWeight: FontWeight.w500);
-  static final titleMedium = baseTextStyle.copyWith(fontSize: 18,fontWeight: FontWeight.w400);
+  static final titleMedium = baseTextStyle.copyWith(fontSize: 23,fontWeight: FontWeight.w700); // changed
   static final titleSmall = baseTextStyle.copyWith(fontSize: 16,fontWeight: FontWeight.w400,color: secondaryText);
 
 
@@ -51,7 +51,7 @@ class BaseTheme {
   static final labelSmall = baseTextStyle.copyWith(fontSize: 11,fontWeight: FontWeight.w500);
 
   static final bodyLarge = baseTextStyle.copyWith(fontSize: 16);
-  static final bodyMedium = baseTextStyle.copyWith(fontSize: 14,fontWeight: FontWeight.w400);
+  static final bodyMedium = baseTextStyle.copyWith(fontSize: 14,fontWeight: FontWeight.w600); // changed
   static final bodySmall = baseTextStyle.copyWith(fontSize: 12,fontWeight: FontWeight.w400,color: secondaryText);
 }
 
