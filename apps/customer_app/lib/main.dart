@@ -2,6 +2,7 @@ import 'package:common/my_sanji_theme.dart';
 import 'package:customer_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:customer_app/firebase_options.dart';
 import 'package:customer_app/repository/auth_repository.dart';
+import 'package:customer_app/screens/home_page.dart';
 import 'package:customer_app/screens/otp_verfication.dart';
 import 'package:customer_app/screens/phone_number_login.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
@@ -49,6 +50,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PhoneNumberLoginScreen();
+    return HomePageScreen();
   }
 }
