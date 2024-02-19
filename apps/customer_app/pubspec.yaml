@@ -31,5 +31,6 @@ flutter:
   assets:
     - assets/images/india_flag.png
     - assets/images/phone_login_mask.png
+    - assets/images/yellowLogo.png
 
 
