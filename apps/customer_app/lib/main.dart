@@ -50,6 +50,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageScreen();
+    return PhoneNumberLoginScreen();
   }
 }
