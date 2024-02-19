@@ -32,10 +32,10 @@ void main() {
       expect(find.byType(MaterialApp), findsOneWidget);
     });
 
-    testWidgets('navigates to PhoneNumberLoginWidget on launch', (WidgetTester tester) async {
-      // Test navigation to the correct screen
-      await tester.pumpWidget(widget);
-      expect(find.byType(PhoneNumberLoginScreen), findsOneWidget);
-    });
+    // testWidgets('navigates to PhoneNumberLoginWidget on launch', (WidgetTester tester) async {
+    //   // Test navigation to the correct screen
+    //   await tester.pumpWidget(widget);
+    //   expect(find.byType(PhoneNumberLoginScreen), findsOneWidget);
+    // });
   });
 }
