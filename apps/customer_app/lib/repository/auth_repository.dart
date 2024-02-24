@@ -33,4 +33,14 @@ class AuthRepository {
       PhoneAuthCredential phoneAuthCredential) async {
     return _firebaseAuth.signInWithCredential(phoneAuthCredential);
   }
+
+
+  // FIX: User shouldn't be allowed to be authenticated anonymously
+  User? getCurrentUser() {
+    if (_firebaseAuth.currentUser != null) {
+      return _firebaseAuth.currentUser;
+    }
+    _firebaseAuth.signInAnonymously();
+    return _firebaseAuth.currentUser;
+  }
 }

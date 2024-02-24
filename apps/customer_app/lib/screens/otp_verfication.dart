@@ -1,6 +1,7 @@
 import 'package:common/widgets.dart';
 import 'package:customer_app/blocs/auth_bloc/auth_state.dart';
 import 'package:customer_app/constants/labels.dart';
+import 'package:customer_app/screens/user_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:otp_text_field/otp_field.dart';
@@ -23,7 +24,7 @@ class OtpVerificationScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccessState) {
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => LoginSuccessWidget()));
+              MaterialPageRoute(builder: (context) => UserDetails()));
         }
       },
       child: GestureDetector(
