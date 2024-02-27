@@ -3,6 +3,10 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../blocs/app_bloc/app_bloc.dart';
+import '../blocs/app_bloc/app_event.dart';
 
 class HomePageScreen extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -11,6 +15,9 @@ class HomePageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
+   _appBloc.firestoreRepository.createTestCategory();
+
     if (Platform.isIOS) {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(

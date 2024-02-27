@@ -1,15 +1,17 @@
+import 'package:customer_app/model/category.dart';
 import 'package:customer_app/model/user.dart';
+import 'package:customer_app/model/user_details_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
 abstract class AppState extends Equatable {
-  const AppState();
+  final UserDetailsModel? user;
+  const AppState({this.user});
 
   @override
   List<Object> get props => [];
 }
-
 
 class AppInitialState extends AppState {
   const AppInitialState();
@@ -19,11 +21,20 @@ class AppInitialState extends AppState {
 }
 
 class UserRetrievedState extends AppState {
-  final UserModel user;
+  final UserDetailsModel userDetails;
 
-  const UserRetrievedState(this.user);
+  const UserRetrievedState(this.userDetails);
 
   @override
-  List<Object> get props => [user];
+  List<Object> get props => [userDetails];
 }
 
+class CategoryRetrievedState extends AppState {
+  final UserDetailsModel userDetails;
+  final Category category;
+
+  const CategoryRetrievedState(this.userDetails, this.category);
+
+  @override
+  List<Object> get props => [userDetails, category];
+}

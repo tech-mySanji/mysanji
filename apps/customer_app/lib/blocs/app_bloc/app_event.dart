@@ -23,3 +23,10 @@ class CreateUserDetailsEvent extends AppEvent {
   @override
   List<Object> get props => [userDetails];
 }
+
+class CreateCategoryEvent extends AppEvent {
+  const CreateCategoryEvent();
+
+  @override
+  List<Object> get props => [];
+}
