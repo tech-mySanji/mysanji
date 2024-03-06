@@ -1,3 +1,4 @@
+import 'package:customer_app/model/category.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../repository/auth_repository.dart';
@@ -32,10 +33,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       }
     });
 
-    on<CreateCategoryEvent>((event, emit) async* {
+    on<GetAllCategoryEvent>((event, emit) async {
       try {
-        final categories = await firestoreRepository.getAllCategories();
-        emit(CategoryRetrievedState(state.user!, categories));
+        String branchId = '1Z2HPXhhb5ehUk0hNuIg';
+        var snapshots = firestoreRepository.getFirebaseData(branchId);
+        var categories = Category.categoriesStream(snapshots);
+
+        emit(CategoryRetrievedState(state.user, categories));
       } catch (e) {
         // emit(AppErrorState(e.toString()));
       }

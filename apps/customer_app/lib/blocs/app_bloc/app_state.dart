@@ -30,11 +30,11 @@ class UserRetrievedState extends AppState {
 }
 
 class CategoryRetrievedState extends AppState {
-  final UserDetailsModel userDetails;
-  final Category category;
+  final UserDetailsModel? userDetails; // It shouldn't be optional
+  final Stream<List<Category>> categories;
 
-  const CategoryRetrievedState(this.userDetails, this.category);
+  const CategoryRetrievedState(this.userDetails, this.categories);
 
   @override
-  List<Object> get props => [userDetails, category];
+  List<Object> get props => [categories];
 }
