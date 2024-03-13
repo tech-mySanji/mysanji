@@ -9,6 +9,6 @@ part 'generated/user.g.dart';
 class UserModel with _$UserModel {
   const factory UserModel({required String userId}) = _User;
 
-  factory UserModel.fromJson(DocumentSnapshot json) =>
+  factory UserModel.fromSnapShot(DocumentSnapshot json) =>
       _$UserModelFromJson(json as Map<String, dynamic>);
 }

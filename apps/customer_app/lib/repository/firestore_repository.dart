@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:customer_app/model/category.dart';
+import 'package:customer_app/model/product.dart';
 import 'package:customer_app/model/user_details_model.dart';
 
 import '../model/user.dart';
@@ -6,13 +8,22 @@ import '../model/user.dart';
 class FirestoreRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> getCategoriesSnapshot(String branchId) {
+   return _firestore.collection('branches').doc(branchId).collection('categories').snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getProductsSnapshot(String branchId) {
+    return _firestore.collection('branches').doc(branchId).collection('products').snapshots();
+  }
+
   Future<UserModel> fetchCurrentUser(String userId) async {
     DocumentSnapshot userDoc =
         await _firestore.collection('users').doc(userId).get();
-    return UserModel.fromJson(userDoc);
+    return UserModel.fromSnapShot(userDoc);
   }
 
-  Future<void> createUserDetails(UserDetailsModel userDetails, String userId) async {
+  Future<void> createUserDetails(
+      UserDetailsModel userDetails, String userId) async {
     await _firestore.collection('users').doc(userId).set({
       'id': userId,
       'name': userDetails.name,
@@ -20,4 +31,46 @@ class FirestoreRepository {
       'pincode': userDetails.pincode,
     });
   }
+
+  Future<List<Category>> getAllCategories() async {
+    String branchId = '1Z2HPXhhb5ehUk0hNuIg'; //
+    QuerySnapshot categories = await _firestore.collection('branches').doc(branchId).collection('categories').get();
+
+    print(categories.docs);
+    var response = Category.getModelsFromSnapshot(categories);
+    return response;
+  }
+
+  Future<List<ProductModel>> getAllProducts() async {
+    String branchId = '1Z2HPXhhb5ehUk0hNuIg'; //
+    QuerySnapshot products = await _firestore.collection('branches').doc(branchId).collection('products').get(); // show products of selected category
+
+    print(products.docs);
+    var response = ProductModel.getModelsFromSnapshot(products);
+    return response;
+  }
+
+
+
+  // Future<void> createTestCategory() async {
+  //   await _firestore
+  //       .collection('branch1')
+  //       .doc('categories')
+  //       .collection('category1')
+  //       .add({
+  //     'name': 'category1',
+  //     'description': 'description1',
+  //     'image': 'image1',
+  //   });
+  //
+  //   await _firestore
+  //       .collection('branch1')
+  //       .doc('categories')
+  //       .collection('category2')
+  //       .add({
+  //     'name': 'category2',
+  //     'description': 'description2',
+  //     'image': 'image2',
+  //   });
+  // }
 }

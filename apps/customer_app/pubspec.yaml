@@ -22,6 +22,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   cloud_firestore: ^4.15.5
   json_annotation: ^4.8.1
+  font_awesome_flutter: ^10.7.0
+  infinite_scroll_pagination: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +33,7 @@ dev_dependencies:
   freezed: ^2.4.7
   build_runner: ^2.4.8
   json_serializable: ^6.7.1
+  faker: ^2.1.0
 
 flutter:
   uses-material-design: true
@@ -39,5 +42,6 @@ flutter:
     - assets/images/phone_login_mask.png
     - assets/images/yellowLogo.png
     - assets/images/my_sanji_logo.png
+    - assets/images/customer_support_img.png
 
 
