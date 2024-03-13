@@ -4,10 +4,15 @@ import 'package:customer_app/model/user_details_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import '../../model/product.dart';
+
 @immutable
 abstract class AppState extends Equatable {
   final UserDetailsModel? user;
-  const AppState({this.user});
+  final Stream<List<Category>>? categories;
+  final Stream<List<ProductModel>>? products;
+  final Category? selectedCategory;
+  const AppState({this.user, this.categories, this.products, this.selectedCategory});
 
   @override
   List<Object> get props => [];
@@ -37,4 +42,28 @@ class CategoryRetrievedState extends AppState {
 
   @override
   List<Object> get props => [categories];
+}
+
+
+class CategorySelectedState extends AppState {
+  final UserDetailsModel? userDetails; // It shouldn't be optional
+  final Stream<List<Category>> categories;
+  final Category selectedCategory;
+
+  const CategorySelectedState(this.userDetails, this.categories, this.selectedCategory);
+
+  @override
+  List<Object> get props => [categories,selectedCategory];
+}
+
+class ProductRetrievedState extends AppState {
+  final UserDetailsModel? userDetails; // It shouldn't be optional
+  final Stream<List<Category>> categories;
+  final Stream<List<ProductModel>> products;
+  final Category? selectedCategory;
+
+  const ProductRetrievedState(this.userDetails, this.categories, this.products, this.selectedCategory);
+
+  @override
+  List<Object> get props => [categories,products];
 }

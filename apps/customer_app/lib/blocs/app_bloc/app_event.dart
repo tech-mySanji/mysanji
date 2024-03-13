@@ -1,3 +1,4 @@
+import 'package:customer_app/model/category.dart';
 import 'package:customer_app/model/user_details_model.dart';
 import 'package:equatable/equatable.dart';
 
@@ -26,6 +27,22 @@ class CreateUserDetailsEvent extends AppEvent {
 
 class GetAllCategoryEvent extends AppEvent {
   const GetAllCategoryEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class CategorySelectedEvent extends AppEvent {
+  final Category selectedCategory;
+
+  const CategorySelectedEvent(this.selectedCategory);
+
+  @override
+  List<Object> get props => [selectedCategory];
+}
+
+class GetProductEvent extends AppEvent {
+  const GetProductEvent();
 
   @override
   List<Object> get props => [];

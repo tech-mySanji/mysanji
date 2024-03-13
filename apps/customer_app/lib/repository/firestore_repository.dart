@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:customer_app/model/category.dart';
+import 'package:customer_app/model/product.dart';
 import 'package:customer_app/model/user_details_model.dart';
 
 import '../model/user.dart';
@@ -7,8 +8,12 @@ import '../model/user.dart';
 class FirestoreRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> getFirebaseData(String branchId) {
+  Stream<QuerySnapshot<Map<String, dynamic>>> getCategoriesSnapshot(String branchId) {
    return _firestore.collection('branches').doc(branchId).collection('categories').snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getProductsSnapshot(String branchId) {
+    return _firestore.collection('branches').doc(branchId).collection('products').snapshots();
   }
 
   Future<UserModel> fetchCurrentUser(String userId) async {
@@ -35,6 +40,17 @@ class FirestoreRepository {
     var response = Category.getModelsFromSnapshot(categories);
     return response;
   }
+
+  Future<List<ProductModel>> getAllProducts() async {
+    String branchId = '1Z2HPXhhb5ehUk0hNuIg'; //
+    QuerySnapshot products = await _firestore.collection('branches').doc(branchId).collection('products').get(); // show products of selected category
+
+    print(products.docs);
+    var response = ProductModel.getModelsFromSnapshot(products);
+    return response;
+  }
+
+
 
   // Future<void> createTestCategory() async {
   //   await _firestore

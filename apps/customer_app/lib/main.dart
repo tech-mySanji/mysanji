@@ -1,9 +1,11 @@
 import 'package:common/my_sanji_theme.dart';
 import 'package:customer_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:customer_app/firebase_options.dart';
+import 'package:customer_app/mockdata.dart';
 import 'package:customer_app/repository/auth_repository.dart';
 import 'package:customer_app/repository/firestore_repository.dart';
 import 'package:customer_app/screens/home_page.dart';
+import 'package:customer_app/screens/list_of_products.dart';
 import 'package:customer_app/screens/phone_number_login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final _authRepository = AuthRepository();
     final _firestoreRepository = FirestoreRepository();
+
 
     return MultiBlocProvider(
         providers: [

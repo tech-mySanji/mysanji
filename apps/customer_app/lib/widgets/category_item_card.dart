@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:customer_app/model/category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../blocs/app_bloc/app_bloc.dart';
+import '../blocs/app_bloc/app_event.dart';
 
 class CategoryItemCard extends StatelessWidget {
   final Category category;
@@ -12,12 +16,15 @@ class CategoryItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
     return InkWell(
       splashColor: Colors.transparent,
       focusColor: Colors.transparent,
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () async {},
+      onTap: () async {
+       _appBloc.add(CategorySelectedEvent(category));
+      },
       child: Material(
         color: Colors.white,
         elevation: 0.0,
